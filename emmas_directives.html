@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script type='text/javascript' src='js/angular.js'></script>
+  </head>
+  <body>
+    <div x-ng-init="songs=[
+      {title: 'Mirrors', artist: 'Justin Timberlake', duration: 300, releaseDate: '2014-07-12', price: 1.5678},
+      {title: 'All or Nothing', artist: 'O-town', duration: 240, releaseDate: '2001-11-12', price: 0.99},
+      {title: 'Whats Going On', artist: 'Marvin Gaye', duration: 190, releaseDate: '1974-05-12', price: 1.99},
+      {title: 'Raspberry Beret', artist: 'Prince', duration: 304, releaseDate: '1987-08-11', price: 1.20},
+      {title: 'Dancing On My Own', artist: 'Robyn', duration: 255, releaseDate: '2010-01-18', price: 2.04}
+      ]">
+    </div>
+    Filter: <input type="text" ng-model="artistFilter.artist"/>
+    <table>
+      <tr>
+        <th ng-click="sortBy='artist'; reverse=!reverse">Artist</th>
+        <th ng-click="sortBy='title'; reverse=!reverse">Title</th>
+        <th ng-click="sortBy='duration'; reverse=!reverse">Duration</th>
+        <th ng-click="sortBy='releaseDate'; reverse=!reverse">Release Date</th>
+        <th ng-click="sortBy='price'; reverse=!reverse">Price</th>
+      </tr>
+      <tr ng-repeat="song in songs | filter:artistFilter | orderBy:sortBy:reverse">
+        <!-- <tr ng-repeat="cust in customers"> -->
+        <td>{{song.artist}}</td>
+        <td>{{song.title | uppercase}}</td>
+        <td>{{song.duration}}</td>
+        <td>{{song.releaseDate | date:'shortDate'}}</td>
+        <td>{{song.price | currency}} </td>
+      </tr>
+    </table>
+  </body>
+
+</html>

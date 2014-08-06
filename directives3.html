@@ -1,0 +1,23 @@
+<html x-ng-app>
+  <head>
+    <script src='js/angular.js'></script>
+  </head>
+  <!-- Initialize app with data -->
+  <body x-ng-init="data={name:'James', isVisible: false, loggedIn: false,   status: 'red'}">
+
+
+    <div data-ng-switch on="data.loggedIn">
+      <!-- Show the user name if they are logged in -->
+      <div data-ng-switch-when="true">
+        Welcome {{data.name}}
+      </div>
+      <!-- Show Login if the user is not logged in -->
+      <div data-ng-switch-default data-ng-class="data.status">Login</div>
+    </div>
+    <!-- ng-show hide or show the element that it is an attribute of --> 
+     <div data-ng-show="data.isVisible">
+      Name: <input type='text' data-ng-model="data.name" />
+      {{ data.name }}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!-- Hey angular.js this is an angular app! -->
+<html data-ng-app>
+  <head>
+    <script src='js/angular.js'></script>
+  </head>
+  <!-- And initialize a property name to the string 'James' -->
+  <body data-ng-init="name='James'">
+
+    <!-- Yo angular we MAY hide everything in this div -->
+    <div data-ng-hide="isHidden">
+
+    <!-- Angular I hope you are paying attention becuase I'm defining a
+    name property right here. -->
+      <input type='text' data-ng-model="name" placeholder= "Enter name:"> </input>
+
+      <!-- Now you, angular,  should eval everything btw the curly braces -->
+      <p>Name's value is : {{ name }}</p>
+    </div>
+
+    <!-- Toggle the isHidden property -->
+    <!-- You know what do huh? -->
+    Hide: <input type='checkbox' data-ng-model="isHidden"></input>
+
+    <!-- Set the name property to Mortimer -->
+    <!-- Define a click handlder to set the name to 'Mortimer' -->
+    <button data-ng-click="name='Mortimer'">Change Name</button>
+
+  </body>
+</html>
+

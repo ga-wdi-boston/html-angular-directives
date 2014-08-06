@@ -1,0 +1,17 @@
+<!doctype htmL>
+<!-- Tell angular.js that this is an angular app -->
+<html ng-app>
+<head>
+<!-- include angular javascript -->
+<script src='js/angular.js'></script>
+</head>
+<body>
+<h1> First Angular View/App</h1>
+  <input type='text' ng-model='name' placeholder="Enter your name"> </input>
+  <input type='text' ng-model='age' placeholder="Enter your age"> </input>
+  <input type='text' ng-model='email' placeholder="Enter your email"> </input>
+
+  <!-- Using an expression {{ .. }} show the value of the property 'name'-->
+   <p> Name {{ name }}, Email: {{ email }}, Age: {{ age }}</p>
+</body>
+</html>
