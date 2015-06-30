@@ -1,32 +1,52 @@
+## Introduction to Angular: Expressions, Directives and Filters
+
+Over the next few days, we will get you acclimated with using Angular. Angular is a massive framework, so obviously we won't get through all of it, but by the end of the next two lessons, you will be proficient enough to get started!
+
+![I know angular!](http://cdn.meme.am/instances/58390732.jpg)
+
+## What is Angular?
+
+Angular is a client-side structural framework that was developed by a Google employee. It gives our HTML a fresh batch of steriods. How, you ask?
+
+1. Data-Binding
+
+We've used templating engines like Handlebars and Jade to bind data to templates with javascript before, but now, our template will be written in html and live in the DOM. Angular's template engine binds the data to our template AFTER the DOM has loaded, not before. This allows us to do some nifty tricks like use two-way data-binding.
+
+2. Custom HTML tags
+
+Angular has a feature called Directives that lets us create custom HTML tags to do our bidding. Our dreams of typing `<max-rules></max-rules>` into our HTML markup have finally come true.
+
+3. Bake-in functionality in our HTML tags
+
+Angular let's you write form validation and functionality right into the html tags of forms. Also, the days of writing jQuery event handlers whenever you want to do something dynamic client-side have passed.
+
 ## Angular Expressions, Directives and Filters
 
-We are going to dive into Angular Views. Later we will see how views fit into the Angular architecture. 
+We are going to dive into Angular Views. Later we will see how views fit into the Angular architecture.
+
+![Angular Overview](AngularComponentOverview1.png)
 
 ## Objectives
 * Learn the most common Angular Directives.
 * Use Angular Filters in views.
 * Show how Angular enables two-way Data Binding with Expressions.
 * Validate Forms.
-* Introduce the concept of ViewModel, $scope.  
-
-![Angular Overview](AngularComponentOverview1.png)
+* Introduce the concept of ViewModel, $scope.
 
 Just Views for now.
 
-## Demo 
+## Demo
 
 #### Setup
 
-We have a js directory that will contain the Angular javascript, angular.js.
-
+We have included a `bower.json` file with angular listed as a dependency. Please run `bower install` to download angular into our repository.
 
 #### First App
-Let's create an Angular Single Page Application (SPA).  
+Let's create an Angular Single Page Application (SPA).
 
-
-* Load Angular js in the page.  
+* Load Angular js in the page.
 * Set the ng-app directive on the html or body tag.
- 	This marks it as a Angular application.   
+ 	This marks it as a Angular application.
 * Bind data using the ng-model directives and displays data using an angular expression ``{{ }}``
 
 __Create a directives1.html file and add the below. Then open in a browser.__
@@ -37,7 +57,7 @@ __Create a directives1.html file and add the below. Then open in a browser.__
  <html ng-app>
   <head>
     <!-- 2. angular javascript -->
-    <script type="text/javascript" src='js/angular.js'>
+    <script type="text/javascript" src='bower_components/angular/angular.js'>
     </script>
   </head>
   <body>
@@ -57,7 +77,7 @@ _Wow, we didn't have to write any javascript. No event handling code!!_
 3. The ng-model directive is used to create a property in this view's ViewModel, $scope.
 4. Data Binding Expression will output the value of the property/attribute.
 
-Each Angular View has a ViewModel that can be accessed via the $scope syntax. It's a container of attributes. We can think that it's just an object literal with properties. 
+Each Angular View has a ViewModel that can be accessed via the $scope syntax. It's a container of attributes. We can think that it's just an object literal with properties.
 
 _We'll see later how $scope fits into the Angular architecture._
 
@@ -68,20 +88,20 @@ _HTML Element attributes or tags provided by Angular that "teaches HTML new tric
 
 Are contained in Views, HTML pages. These are Angular specific HTML Elements attributes and tags that _enhance_ or _extend_ HTML.
 
-* They typically start with __ng-__. But can start with __data-ng-__ to be compatible with HTML validators. 
+* They typically start with __ng-__. But can start with __data-ng-__ to be compatible with HTML validators.
 
 #### Expressions
 
-Are contained in Views. These are somewhat like a javascript eval in that they can execute javascript. 
+Are contained in Views. These are somewhat like a javascript eval in that they can execute javascript.
 
 The syntax for an expression is ``{{ ... }}`` where ``...`` is any javascript expression.
 
-Some Expressions:  
+Some Expressions:
 
 ```
  {{ 3 + 11 }}
-  
- {{ "Mr" + name }}
+
+ {{ "Mr " + name }}
 ```
 
 #### Data Binding
@@ -106,9 +126,9 @@ Because the view is just a projection of the model, the controller is completely
 ![Two-Way Data Binding](twoway.png)
 
 
-Previously, we used an control oriented approach to handling changes to elements, controls (input fields, ...), on the page. We attached javascript handlers that would process these change _events_. 
+Previously, we used an control oriented approach to handling changes to elements, controls (input fields, ...), on the page. We attached javascript handlers that would process these change _events_.
 
-With automatic data binding that Angular provides there is no need for all this code. We just _bind_ to the data we're interested in and all places that use that data in the page will change. 
+With automatic data binding that Angular provides there is no need for all this code. We just _bind_ to the data we're interested in and all places that use that data in the page will change.
 
 ## Lab 1
 Create a template file, directives_email_age.html, that is like the above but it will add input fields for email and age that have bindings to attributes. Show these attributes using expressions.
@@ -117,14 +137,14 @@ Create a template file, directives_email_age.html, that is like the above but it
 
 ### ng-hide, ng-click directives.
 
-Lets please the HTML validators and use _data-ng-_ directives.
+Let's use the HTML validators and use _data-ng-_ directives.
 
 __Create a file directives2.html.__
 
 ```
 <html data-ng-app>
   <head>
-    <script type="text/javascript" src='js/angular.js'> </script>
+    <script type="text/javascript" src='bower_components/angular/angular.js'> </script>
   </head>
   <!-- initialize name attribute to the value 'James' -->
   <body data-ng-init="name='James'">
@@ -146,15 +166,13 @@ __Create a file directives2.html.__
 </html>
 ```
 
-Now we see a couple of new directives. 
+Now we see a couple of new directives.
 
-* ng-hide - Shows or hides the HTML element depending on the value of the isHidden attribute.  
+* ng-hide - Shows or hides the HTML element depending on the value of the isHidden attribute.
 * ng-init - Evaluates expression, ``name='James'``, in the current scope.  Creates and initializes the name attribute.
-* ng-click - Evaluates the expression, `` name='Mortimer` ``. Changes the name attribute's value to 'Mortimer'  
+* ng-click - Evaluates the expression, `` name='Mortimer` ``. Changes the name attribute's value to 'Mortimer'
 
 In the Chrome debugger notice how the div surrounding the input field gets the class ng-hide when one clicks the checkbox.
-
-
 
 ### ng-switch, ng-show directives.
 
@@ -166,11 +184,11 @@ __Create a file directives3.html.__
 <html data-ng-app>
   <head>
     <title>More on Directives</title>
-    <link href='css/styles.css' rel="stylesheet" type='text/css'/>
-    <script type='text/javascript' src='js/angular.js'></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script type='text/javascript' src='bower_components/angular/angular.js'></script>
   </head>
   <!-- Set the initial model property, data.    -->
-  <body data-ng-init="data={name:'James', isVisible: true, loggedIn: false,   status: 'red'}">
+  <body data-ng-init="data={name:'James', isVisible: true, loggedIn: false, status: 'red'}">
     <div data-ng-switch on="data.loggedIn">
       <div data-ng-switch-when="true">
         Welcome {{data.name}}
@@ -191,9 +209,9 @@ This will create an object literal, data, that is seen in the view. The data.nam
 
 ## Lab 2
 
-Change the _data_ object literal so that:  
-* Input fields are hidden.  
-* User is logged in.  
+Change the _data_ object literal so that:
+* Input fields are hidden.
+* User is logged in.
 
 
 ## Demo
@@ -210,7 +228,7 @@ __Create a file directives_repeat.html.__
 <!document html>
 <html ng-app>
   <head>
-    <script type='text/javascript' src='js/angular.js'></script>
+    <script type='text/javascript' src='bower_components/angular/angular.js'></script>
   </head>
   <body>
     <div ng-init="people=[{name: 'Tom', city:'Groton'}, {name: 'Mike',
@@ -252,13 +270,13 @@ Filters can be used to format data, convert it to json, limit the number of item
 
 ###### orderBy Filter
 
-__Create directives_orderby.html.__  
+__Create directives_orderby.html.__
 
 
 ```
 <html ng-app>
   <head>
-    <script type='text/javascript' src='js/angular.js'></script>
+    <script type='text/javascript' src='bower_components/angular/angular.js'></script>
   </head>
   <body ng-init="customers=[{joined: '2000-12-02', name:'John', city:'Chandler', orderTotal: 9.9956}, {joined: '1965-01-25',name:'Zed', city:'Las Vegas', orderTotal: 19.99},{joined: '1944-06-15',name:'Tina', city:'New York', orderTotal:44.99}, {joined: '1995-03-28',name:'Dave', city:'Seattle', orderTotal:101.50}]">
     <h3>Customers</h3>
@@ -285,26 +303,26 @@ __Create directives_orderby.html.__
 ```
 
 * Order By the name property.
-     `` <tr ng-repeat="cust in customers | orderBy:'name'">`` 
+     `` <tr ng-repeat="cust in customers | orderBy:'name'">``
 
 
-* Can chain filters 
+* Can chain filters
      `` <tr ng-repeat="cust in customers | orderBy:'name' | orderBy:'city' ">``
 
-* Filter by the name property.  
+* Filter by the name property.
 
 		Filter: <input type="text" ng-model="customerFilter.name"/>
       	...
-       	<tr ng-repeat="cust in customers | filter: customerFilter | orderBy:'name'">		
+       	<tr ng-repeat="cust in customers | filter: customerFilter | orderBy:'name'">
 
-     
+
 __Create directives_last.html.__
 
 ```
 <!document html>
 <html ng-app>
   <head>
-    <script type='text/javascript' src='js/angular.js'></script>
+    <script type='text/javascript' src='bower_components/angular/angular.js'></script>
   </head>
   <body ng-init="customers=[{joined: '2000-12-02', name:'John', city:'Chandler', orderTotal: 9.9956}, {joined: '1965-01-25',name:'Zed', city:'Las Vegas', orderTotal: 19.99},{joined: '1944-06-15',name:'Tina', city:'New York', orderTotal:44.99}, {joined: '1995-03-28',name:'Dave', city:'Seattle', orderTotal:101.50}]">
     <h3>Customers</h3>
@@ -333,13 +351,13 @@ __Create directives_last.html.__
 
 * Create a model customFilter.name that will use the contents of the input field as a filter.
 * Create click handlers for each column.
-* Each click handler will: 
+* Each click handler will:
 	* Set the sortBy property used in the orderBy filter.
 	* Toggle the reverse property used in the orderBy filter.
 
 ## Lab 4
 
-Create a set of songs, like in the last Lab. And use each of the [Angular filters](https://docs.angularjs.org/api/ng/filter) to display these songs. 
+Create a set of songs, like in the last Lab. And use each of the [Angular filters](https://docs.angularjs.org/api/ng/filter) to display these songs.
 
 ## Documentation
 
@@ -349,5 +367,3 @@ Create a set of songs, like in the last Lab. And use each of the [Angular filter
 
 [Angular Filters](https://docs.angularjs.org/api/ng/filter)
 
-This is like the $.ajax in JQuery.  
-[Ajax HTTP Service](https://docs.angularjs.org/api/ng/service/$http) 
