@@ -10,15 +10,15 @@ Angular is a client-side structural framework that was developed by Google. It l
 
 1. Data-Binding
 
-We've used templating engines like Handlebars and Jade to bind data to templates with javascript before, but now, our template will be written in html and live in the DOM. Angular's template engine binds the data to our template AFTER the DOM has loaded, not before. This allows us to do some nifty tricks like use two-way data-binding.
+   We've used templating engines like Handlebars and Jade to bind data to templates with javascript before, but now, our template will be written in html and live in the DOM. Angular's template engine binds the data to our template AFTER the DOM has loaded, not before. This allows us to do some nifty tricks like use two-way data-binding.
 
 2. Custom HTML tags
 
-Angular has a feature called Directives that lets us create custom HTML tags to do our bidding. Our dreams of typing `<max-rules></max-rules>` into our HTML markup have finally come true.
+  Angular has a feature called Directives that lets us create custom HTML tags to do our bidding. Our dreams of typing `<max-rules></max-rules>` into our HTML markup have finally come true.
 
 3. Bake-in functionality in our HTML tags
 
-Angular let's you write form validation and functionality right into the html tags of forms. Also, the days of writing jQuery event handlers whenever you want to do something dynamic client-side have passed.
+  Angular let's you write form validation and functionality right into the html tags of forms. Also, the days of writing jQuery event handlers whenever you want to do something dynamic client-side have passed.
 
 ## Angular Expressions, Directives and Filters
 
