@@ -6,7 +6,7 @@ Over the next few days, we will get you acclimated with using Angular. Angular i
 
 ## What is Angular?
 
-Angular is a client-side structural framework that was developed by a Google employee. It gives our HTML a fresh batch of steriods. How, you ask?
+Angular is a client-side structural framework that was developed by Google. It leverages javascript to give our HTML a fresh batch of steriods. How, you ask?
 
 1. Data-Binding
 
