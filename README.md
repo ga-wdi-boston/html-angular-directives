@@ -1,6 +1,6 @@
 ## Introduction to Angular: Expressions, Directives and Filters
 
-Over the next few days, we will get you acclimated with using Angular. Angular is a massive framework, so obviously we won't get through all of it, but by the end of the next two lessons, you will be proficient enough to get started!
+Over the next few days, we will get you acclimated with using Angular. Angular is a massive framework, so obviously we won't get through all of it, but by the end of the next few lessons, you will be proficient enough to get started!
 
 ![I know angular!](http://cdn.meme.am/instances/58390732.jpg)
 
