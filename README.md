@@ -10,7 +10,7 @@ Angular is a client-side structural framework that was developed by Google. It l
 
 1. Data-Binding
 
-   We've used templating engines like Handlebars and Jade to bind data to templates with javascript before, but now, our template will be written in html and live in the DOM. Angular's template engine binds the data to our template AFTER the DOM has loaded, not before. This allows us to do some nifty tricks like use two-way data-binding.
+   We've used templating engines like Handlebars to bind data to templates with javascript before, but now, our template will be written in html and live in the DOM. Angular's template engine binds the data to our template AFTER the DOM has loaded, not before. This allows us to do some nifty tricks like use two-way data-binding.
 
 2. Custom HTML tags
 
@@ -51,8 +51,7 @@ Let's create an Angular Single Page Application (SPA).
 
 __Create a directives1.html file and add the below. Then open in a browser.__
 
-```
-<!doctype html>
+```html
  <!-- 1. ng-app -->
  <html ng-app>
   <head>
@@ -74,12 +73,12 @@ _Wow, we didn't have to write any javascript. No event handling code!!_
 
 1. The ng-app directive tells the angular.js that this is an angular app.
 2. Include the Angular javascript.
-3. The ng-model directive is used to create a property in this view's ViewModel, $scope.
+3. The ng-model directive is used to create a property in this view's ViewModel.
 4. Data Binding Expression will output the value of the property/attribute.
 
-Each Angular View has a ViewModel that can be accessed via the $scope syntax. It's a container of attributes. We can think that it's just an object literal with properties.
+Each Angular View has a ViewModel that can be accessed via the scope syntax. It's a container of attributes. We can think that it's just an object literal with properties.
 
-_We'll see later how $scope fits into the Angular architecture._
+_We'll see later how scope fits into the Angular architecture._
 
 
 #### Directives
@@ -98,7 +97,7 @@ The syntax for an expression is ``{{ ... }}`` where ``...`` is any javascript ex
 
 Some Expressions:
 
-```
+```html
  {{ 3 + 11 }}
 
  {{ "Mr " + name }}
@@ -141,7 +140,7 @@ Let's use the HTML validators and use _data-ng-_ directives.
 
 __Create a file directives2.html.__
 
-```
+```html
 <html data-ng-app>
   <head>
     <script type="text/javascript" src='bower_components/angular/angular.js'> </script>
@@ -179,8 +178,7 @@ In the Chrome debugger notice how the div surrounding the input field gets the c
 
 __Create a file directives3.html.__
 
-```
-<!doctype html>
+```html
 <html data-ng-app>
   <head>
     <title>More on Directives</title>
@@ -224,8 +222,7 @@ We want to iterate over this people Array and __repeat__ some markup that will s
 
 __Create a file directives_repeat.html.__
 
-```
-<!document html>
+```html
 <html ng-app>
   <head>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
@@ -273,7 +270,7 @@ Filters can be used to format data, convert it to json, limit the number of item
 __Create directives_orderby.html.__
 
 
-```
+```html
 <html ng-app>
   <head>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
@@ -318,8 +315,7 @@ __Create directives_orderby.html.__
 
 __Create directives_last.html.__
 
-```
-<!document html>
+```html
 <html ng-app>
   <head>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
